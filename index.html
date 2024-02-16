@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div class="hero">
+    <div class="container">
+        <div class="clock">
+            <span id="hrs">00</span>
+            <span>:</span>
+            <span id="min">00</span>
+            <span>:</span>
+            <span id="sec">00</span>
+        </div>
+    </div>
+</div>
+<script>
+
+    let hrs = document.getElementById("hrs");
+    let min = document.getElementById("min");
+    let sec = document.getElementById("sec");
+    let period = document.getElementById("period");
+    
+    setInterval(() => {
+        let currentTime = new Date();
+    
+        let hours = currentTime.getHours();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+    
+        // Convert to 12-hour format
+        hours = hours % 12 || 12;
+    
+        hrs.innerHTML = (hours < 10 ? "0" : "") + hours;
+        min.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
+        sec.innerHTML = (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
+        period.innerHTML = ampm;
+    }, 1000);
+    
+    let currentTime = new Date();
+    
+    let hours = currentTime.getHours();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    // Convert to 12-hour format
+    hours = hours % 12 || 12;
+    
+    hrs.innerHTML = (hours < 10 ? "0" : "") + hours;
+    min.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
+    sec.innerHTML = (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
+    period.innerHTML = ampm;
+    
+    </script>
+    
+
+
+</body>
+</html>
